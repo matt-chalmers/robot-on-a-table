@@ -1,3 +1,11 @@
+
+.env
+.idea/
+dist/
+logs/
+robot-on-a-table.iml
+
+
 # Logs
 logs
 *.log

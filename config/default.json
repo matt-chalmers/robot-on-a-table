@@ -1,0 +1,12 @@
+{
+    "table" : {
+        "height" : 5,
+        "width" : 5
+    },
+
+    "logging" : {
+        "level" : "debug",
+        "fileLogging" : true,
+        "consoleLogging" : false
+    }
+}
