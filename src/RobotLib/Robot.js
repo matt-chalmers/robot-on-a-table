@@ -62,7 +62,7 @@ export class Robot {
     /**
      * Turn the robot 90 degrees from its current direction
      * Silently ignore an unplaced robot.
-     * @param {Turn} way
+     * @param {string} way
      * @return {null}
      */
     turn(way) {
