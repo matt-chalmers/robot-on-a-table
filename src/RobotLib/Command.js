@@ -7,7 +7,14 @@ import {Turn} from './Position';
 
 
 class AbstractCommand {
+
+    /**
+     * Execute the command using a robot
+     * @param {Robot} robot
+     * @return {string|null} robot response
+     */
     execute(robot) { return null; }
+
     toString() { return 'Command()'; }
 }
 
@@ -19,14 +26,8 @@ export class Place extends AbstractCommand {
         super();
         this.position = position;
     }
-
-    /**
-     * Execute the command using a robot
-     * @param {Robot} robot
-     * @return {string|null} robot response
-     */
+    
     execute(robot) { robot.place(this.position); }
-
     toString() { return `Place(${this.position.describe()})`; }
 }
 
