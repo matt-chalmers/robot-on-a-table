@@ -7,14 +7,6 @@ import {RestrictToTableConstraint} from "./RobotLib/Constraint";
 import {ConsoleClient} from "./ConsoleIO/ConsoleClient";
 
 
-const USAGE_MSG = `Invalid command. Available commands are:
-    PLACE X,Y,[NORTH|SOUTH|EAST|WEST]
-    MOVE 
-    LEFT 
-    RIGHT 
-    REPORT
-`;
-
 export class App {
 
     constructor() {
@@ -28,14 +20,10 @@ export class App {
      * @return {string} robot response
      */
     _handleCommand(command) {
-        logger.debug('_handleCommand: %s', command);
-        if ( command === null ) {
-            return USAGE_MSG;
-        } else {
-            const response = command.execute(this.robot);
-            logger.debug('_handleCommand response: %s', response);
-            return response;
-        }
+        logger.debug('App._handleCommand: %s', command);
+        const response = command.execute(this.robot);
+        logger.debug('App._handleCommand response: %s', response);
+        return response;
     };
 
     /**

@@ -4,6 +4,14 @@ import os from "os";
 import {CommandParser} from "./CommandParser";
 
 
+const USAGE_MSG = `Invalid command. Available commands are:
+    PLACE X,Y,[NORTH|SOUTH|EAST|WEST]
+    MOVE 
+    LEFT 
+    RIGHT 
+    REPORT
+`;
+
 export class ConsoleClient {
     /**
      * Construct a ConsoleClient using a command handler which will process
@@ -24,7 +32,11 @@ export class ConsoleClient {
      */
     handleInput(input) {
         const command = this.parser.parse(input);
-        return this.commandHandler(command);
+        if ( command === null ) {
+            return USAGE_MSG;
+        } else {
+            return this.commandHandler(command);
+        }
     }
 
     /**
