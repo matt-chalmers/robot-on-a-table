@@ -18,7 +18,6 @@ export const Orientation = {
 
 const TURNS_MAP = {
     // [originalOrientation][turn] => newOrientation
-
     [Orientation.North] : {
         [Turn.Left]: Orientation.West,
         [Turn.Right]: Orientation.East,

@@ -18,7 +18,6 @@ export class Robot {
         } else {
             logger.debug('Robot.place(%s) - failed constraints', position);
         }
-
     }
 
     moveForward() {
@@ -41,7 +40,7 @@ export class Robot {
             logger.debug('Robot.turn() - ignored as robot is not yet placed');
             return;
         }
-
+        
         this.position = Position.turn(this.position, way);
         logger.debug('Robot.turn() - turned %s', way);
     }
