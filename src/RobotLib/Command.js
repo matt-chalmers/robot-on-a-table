@@ -20,7 +20,6 @@ export class Place extends Command {
 export class Move extends Command {
     execute(robot) { robot.moveForward(); }
     toString() { return 'Move()'; }
-
 }
 
 export class TurnLeft extends Command {
