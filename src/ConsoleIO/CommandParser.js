@@ -4,7 +4,7 @@
     is highly likely to be upgraded or swapped out in the future, hence this abstraction.
  */
 
-import {Position, Orientation} from "../RobotLib/Position";
+import {Pose, Orientation} from "../RobotLib/Pose";
 import * as Commands from '../RobotLib/Command';
 import logger from '../logging';
 
@@ -47,8 +47,8 @@ export class CommandParser {
                 const x = Number(placeMatch[1]);
                 const y = Number(placeMatch[2]);
                 const orientation = ORIENTATION_MAP[placeMatch[3]];
-                const position = new Position(x,y,orientation);
-                command = new Commands.Place(position);
+                const pose = new Pose(x,y,orientation);
+                command = new Commands.Place(pose);
             }
         }
 

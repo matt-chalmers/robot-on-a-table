@@ -3,7 +3,7 @@
     allow us to cleanly extend into using input sources other than the Console.
  */
 
-import {Turn} from './Position';
+import {Turn} from './Pose';
 
 
 class AbstractCommand {
@@ -22,13 +22,13 @@ class AbstractCommand {
 // Concrete command classes:
 
 export class Place extends AbstractCommand {
-    constructor(position) {
+    constructor(pose) {
         super();
-        this.position = position;
+        this.pose = pose;
     }
-    
-    execute(robot) { robot.place(this.position); }
-    toString() { return `Place(${this.position.describe()})`; }
+
+    execute(robot) { robot.place(this.pose); }
+    toString() { return `Place(${this.pose.describe()})`; }
 }
 
 export class Move extends AbstractCommand {

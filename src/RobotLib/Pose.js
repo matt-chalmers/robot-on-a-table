@@ -1,6 +1,9 @@
 /*
-    This module provides us with the ability to describe the positioning of objects
-    and calculate position transitions.
+    This module provides us with the ability to describe the placement of objects in space
+    and calculate transitions to new placements.
+
+    A Pose is a term used in robotics to describe a combination of the position and orientation
+    for an object.
  */
 
 import logger from "../logging";
@@ -50,10 +53,10 @@ const MOVEMENT_MAP = {
     [Orientation.West]: [-1,0],
 };
 
-export class Position {
+export class Pose {
 
     /**
-     * Construct a Position in space, including orientation (i.e. direction)
+     * Construct a Pose in space, including position and orientation
      * @param {Number} x
      * @param {Number} y
      * @param {string} orientation
@@ -72,25 +75,25 @@ export class Position {
     toString() { return this.describe(); }
 
     /**
-     * Provide a position that is one step forward from the given position
-     * @param {Position} position
-     * @return {Position} next position
+     * Provide a pose that is one step forward from the given pose
+     * @param {Pose} pose
+     * @return {Pose} next pose
      */
-    static increment(position) {
-        const [xStep, yStep] = MOVEMENT_MAP[position.orientation];
-        logger.debug('Position.increment: [xStep, yStep] = [%d, %d]', xStep, yStep);
-        return new Position(position.x + xStep, position.y + yStep, position.orientation);
+    static increment(pose) {
+        const [xStep, yStep] = MOVEMENT_MAP[pose.orientation];
+        logger.debug('Pose.increment: [xStep, yStep] = [%d, %d]', xStep, yStep);
+        return new Pose(pose.x + xStep, pose.y + yStep, pose.orientation);
     }
 
     /**
-     * Provide a position that turned 90 degrees from the given position
-     * @param {Position} position
+     * Provide a pose that is turned 90 degrees from the given pose
+     * @param {Pose} pose
      * @param {string} way
-     * @return {Position} turned position
+     * @return {Pose} turned pose
      */
-    static turn(position, way) {
-        const newOrientation =  Orientation.turn(position.orientation, way);
-        logger.debug('Position.turn(%s): newOrientation = %s', way, newOrientation);
-        return new Position(position.x, position.y, newOrientation);
+    static turn(pose, way) {
+        const newOrientation =  Orientation.turn(pose.orientation, way);
+        logger.debug('Pose.turn(%s): newOrientation = %s', way, newOrientation);
+        return new Pose(pose.x, pose.y, newOrientation);
     }
 }

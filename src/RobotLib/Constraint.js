@@ -14,10 +14,10 @@ class AbstractPositionConstraint {
 
     /**
      * Check if the robot is allowed to visit this position
-     * @param {Position} position
+     * @param {Pose} pose
      * @return {boolean}
      */
-    check(position) { return true; }
+    check(pose) { return true; }
 }
 
 
@@ -25,9 +25,9 @@ class AbstractPositionConstraint {
 
 class RestrictToTableConstraint extends AbstractPositionConstraint {
 
-    check(position) {
-        const ok = this.tableMap.containsPosition(position);
-        logger.debug('RestrictToTableConstraint %s for position %s', ok ? 'passed' : 'failed', position);
+    check(pose) {
+        const ok = this.tableMap.containsPosition(pose.x, pose.y);
+        logger.debug('RestrictToTableConstraint %s for pose %s', ok ? 'passed' : 'failed', pose);
         return ok;
     }
 }

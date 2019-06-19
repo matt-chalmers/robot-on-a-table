@@ -1,5 +1,5 @@
 
-import {Orientation, Position} from "../src/RobotLib/Position";
+import {Orientation, Pose} from "../src/RobotLib/Pose";
 import {App} from "../src/App";
 
 
@@ -54,7 +54,7 @@ describe("Integrated Robot Tests", function() {
         beforeEach(() => {
             app = new App();
             client = app.client;
-            app.robot.position = new Position(1, 1, Orientation.North);
+            app.robot.pose = new Pose(1, 1, Orientation.North);
         });
 
 

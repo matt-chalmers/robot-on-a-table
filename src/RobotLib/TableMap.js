@@ -8,13 +8,12 @@ export class TableMap {
 
     /**
      * Determine if a given position within the bounds of this table
-     * @param {Position} position
+     * @param {Number} x
+     * @param {Number} y
      * @return {boolean}
      */
-    containsPosition(position) {
-        return (position.x >= 0) &&
-            (position.x <= this.height -1) &&
-            (position.y >= 0) &&
-            (position.y <= this.width -1);
+    containsPosition(x, y) {
+        return (x >= 0) && (x <= this.height -1) &&
+            (y >= 0) && (y <= this.width -1);
     }
 }

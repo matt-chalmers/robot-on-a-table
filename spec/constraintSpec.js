@@ -1,6 +1,6 @@
 
 
-import {Orientation, Position} from "../src/RobotLib/Position";
+import {Orientation, Pose} from "../src/RobotLib/Pose";
 import {RestrictToTableConstraint} from "../src/RobotLib/Constraint";
 import {TableMap} from "../src/RobotLib/TableMap";
 
@@ -18,8 +18,8 @@ describe("Constraint Tests", function() {
             for (let x = 0; x <= tableMap.width - 1; x++) {
                 for (let y = 0; y <= tableMap.height - 1; y++) {
                     it(`Valid Positions  (x,y) = (${x},${y})`, function () {
-                        const position = new Position(x, y, Orientation.North);
-                        expect(constraint.check(position)).toBe(true);
+                        const pose = new Pose(x, y, Orientation.North);
+                        expect(constraint.check(pose)).toBe(true);
                     });
                 }
             }
@@ -29,8 +29,8 @@ describe("Constraint Tests", function() {
             for (let x = 0; x <= tableMap.width - 1; x++) {
                 for (let y of [-1, tableMap.height]) {
                     it(`Invalid Positions (x,y) = (${x},${y})`, function () {
-                        const position = new Position(x, y, Orientation.North);
-                        expect(constraint.check(position)).toBe(false);
+                        const pose = new Pose(x, y, Orientation.North);
+                        expect(constraint.check(pose)).toBe(false);
                     });
                 }
             }
@@ -40,8 +40,8 @@ describe("Constraint Tests", function() {
             for (let y = 0; y <= tableMap.height - 1; y++) {
                 for (let x of [-1, tableMap.width]) {
                     it(`Invalid Positions (x,y) = (${x},${y})`, function () {
-                        const position = new Position(x, y, Orientation.North);
-                        expect(constraint.check(position)).toBe(false);
+                        const pose = new Pose(x, y, Orientation.North);
+                        expect(constraint.check(pose)).toBe(false);
                     });
                 }
             }
@@ -51,8 +51,8 @@ describe("Constraint Tests", function() {
             for (let x of [-1, tableMap.width]) {
                 for (let y of [-1, tableMap.height]) {
                     it(`Invalid Positions (x,y) = (${x},${y})`, function () {
-                        const position = new Position(x, y, Orientation.North);
-                        expect(constraint.check(position)).toBe(false);
+                        const pose = new Pose(x, y, Orientation.North);
+                        expect(constraint.check(pose)).toBe(false);
                     });
                 }
             }

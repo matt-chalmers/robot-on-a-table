@@ -2,7 +2,7 @@
 
 import {CommandParser} from "../src/ConsoleIO/CommandParser";
 import * as Commands from '../src/RobotLib/Command';
-import {Orientation, Position} from "../src/RobotLib/Position";
+import {Orientation, Pose} from "../src/RobotLib/Pose";
 
 
 describe("Parsing Tests", function() {
@@ -62,7 +62,7 @@ describe("Parsing Tests", function() {
         for (const {test_direction, orientation} of placeTests) {
             it("Parse " + test_direction, function () {
                 const command = parser.parse(`  PLACE 123 , 123 , ${test_direction} `);
-                const expectedCommand = new Commands.Place(new Position(123,123, orientation));
+                const expectedCommand = new Commands.Place(new Pose(123,123, orientation));
                 expect(command).toEqual(expectedCommand);
             });
         }
