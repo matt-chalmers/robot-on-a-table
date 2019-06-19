@@ -24,12 +24,12 @@ The application operates as a console application that can read in commands of t
 - REPORT will announce the X,Y and F of the robot. This can be in any form, but standard output is sufficient. A robot that is not on the table can choose to ignore the MOVE, LEFT, RIGHT and REPORT commands. 
 - Input can be from a file, or from standard input, as the developer chooses. 
 
-###Constraints 
+### Constraints 
 
 The robot must not fall off the table during movement. This also includes the initial placement of the robot. Any move that would cause the robot to fall must be ignored. 
 
 
-###Example Input and Output 
+### Example Input and Output 
 
 Input:
 
