@@ -1,15 +1,23 @@
+/*
+    This module provides Constraint classes, which are used to provide flexible and extensible
+    constrain checking when the robot attempts to move. This allows different robots to be
+    configured with different strategies, something I intend to the system to handle shortly...
+ */
 
 import logger from "../logging";
 
 
-class PositionConstraint {
+class AbstractPositionConstraint {
     constructor(tableMap) {
         this.tableMap = tableMap;
     }
     check(position) { return true; }
 }
 
-class RestrictToTableConstraint extends PositionConstraint {
+
+// Concrete position constraint classes:
+
+class RestrictToTableConstraint extends AbstractPositionConstraint {
 
     check(position) {
         const ok = this.tableMap.containsPosition(position);

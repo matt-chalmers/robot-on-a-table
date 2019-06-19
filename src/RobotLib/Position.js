@@ -1,3 +1,7 @@
+/*
+    This module provides us with the ability to describe the positioning of objects
+    and calculate position transitions.
+ */
 
 import logger from "../logging";
 

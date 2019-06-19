@@ -1,5 +1,4 @@
 
-
 export class TableMap {
 
     constructor(config) {

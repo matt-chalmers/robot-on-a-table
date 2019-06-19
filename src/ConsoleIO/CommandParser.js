@@ -1,3 +1,8 @@
+/*
+    This module provides the parsing implementation for converting raw input into
+    defined commands. There are many ways to accomplish this task and the implementation
+    is highly likely to be upgraded or swapped out in the future, hence this abstraction.
+ */
 
 import {Position, Orientation} from "../RobotLib/Position";
 import * as Commands from '../RobotLib/Command';

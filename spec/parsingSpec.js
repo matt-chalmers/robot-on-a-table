@@ -7,7 +7,7 @@ import {Orientation, Position} from "../src/RobotLib/Position";
 
 describe("Parsing Tests", function() {
 
-    const parser = new CommandParser()
+    const parser = new CommandParser();
 
     describe("Basic command type matching", function() {
 
@@ -66,7 +66,7 @@ describe("Parsing Tests", function() {
         for (const {test_direction, orientation} of placeTests) {
             it("Parse " + test_direction, function () {
                 const command = parser.parse(`  PLACE 123 , 123 , ${test_direction} `);
-                const expectedCommand = new Commands.Place(new Position(123,123, orientation))
+                const expectedCommand = new Commands.Place(new Position(123,123, orientation));
                 expect(command).toEqual(expectedCommand);
             });
         }
