@@ -17,7 +17,7 @@ export class App {
     /**
      * Process a command from an IO source
      * @param {Command} command
-     * @return {string} robot response
+     * @return {string|null} robot response
      */
     _handleCommand(command) {
         logger.debug('App._handleCommand: %s', command);

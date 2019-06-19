@@ -13,9 +13,9 @@ class AbstractPositionConstraint {
     }
 
     /**
-     * Check is the robot is allowed to visit this position
+     * Check if the robot is allowed to visit this position
      * @param {Position} position
-     * @return {boolean} is the robot allowed
+     * @return {boolean}
      */
     check(position) { return true; }
 }
