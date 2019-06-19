@@ -14,25 +14,21 @@ describe("Parsing Tests", function() {
         it("RIGHT", function () {
             const command = parser.parse(' RIGHT ');
             expect(command).toEqual(jasmine.any(Commands.TurnRight));
-
         });
 
         it("LEFT", function () {
             const command = parser.parse(' LEFT ');
             expect(command).toEqual(jasmine.any(Commands.TurnLeft));
-
         });
 
         it("MOVE", function () {
             const command = parser.parse(' MOVE ');
             expect(command).toEqual(jasmine.any(Commands.Move));
-
         });
 
         it("REPORT", function () {
             const command = parser.parse(' REPORT ');
             expect(command).toEqual(jasmine.any(Commands.Report));
-
         });
 
         it("PLACE", function () {
