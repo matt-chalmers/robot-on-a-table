@@ -3,7 +3,6 @@ import {Turn} from './Position';
 
 
 class Command {
-
     execute(robot) { return null; }
     toString() { return 'Command()'; }
 }
