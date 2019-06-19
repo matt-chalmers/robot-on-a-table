@@ -5,17 +5,31 @@ import {CommandParser} from "./CommandParser";
 
 
 export class ConsoleClient {
+    /**
+     * Construct a ConsoleClient using a command handler which will process
+     * all commands that we detect from the client.
+     * @param {function} commandHandler
+     * @constructor
+     */
     constructor(commandHandler) {
         this.commandHandler = commandHandler;
         this.rl = null;
         this.parser = new CommandParser();
     }
 
+    /**
+     * Execute a single line of input as a robot command
+     * @param {string} input
+     * @return {string|null} robot response
+     */
     handleInput(input) {
         const command = this.parser.parse(input);
         return this.commandHandler(command);
     }
 
+    /**
+     * Commence processing input from the console
+     */
     start() {
         this.rl = readline.createInterface({
             input: process.stdin,

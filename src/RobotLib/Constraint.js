@@ -11,6 +11,12 @@ class AbstractPositionConstraint {
     constructor(tableMap) {
         this.tableMap = tableMap;
     }
+
+    /**
+     * Check is the robot is allowed to visit this position
+     * @param {Position} position
+     * @return {boolean} is the robot allowed
+     */
     check(position) { return true; }
 }
 

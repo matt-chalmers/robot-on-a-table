@@ -6,6 +6,11 @@ export class TableMap {
         this.width = config.width;
     }
 
+    /**
+     * Determine if a given position within the bounds of this table
+     * @param {Position} position
+     * @return {boolean}
+     */
     containsPosition(position) {
         return (position.x >= 0) &&
             (position.x <= this.height -1) &&

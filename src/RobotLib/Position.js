@@ -6,11 +6,13 @@
 import logger from "../logging";
 
 
+// Allowed values for Turning in space
 export const Turn = {
     Left: 'LEFT',
     Right: 'RIGHT',
 };
 
+// Allowed values for Orientation in space
 export const Orientation = {
     North: 'NORTH',
     South: 'SOUTH',
@@ -50,6 +52,13 @@ const MOVEMENT_MAP = {
 
 export class Position {
 
+    /**
+     * Construct a Position in space, including orientation (i.e. direction)
+     * @param {Number} x
+     * @param {Number} y
+     * @param {string} orientation
+     * @constructor
+     */
     constructor(x, y, orientation) {
         this.x = x;
         this.y = y;
@@ -62,12 +71,23 @@ export class Position {
 
     toString() { return this.describe(); }
 
+    /**
+     * Provide a position that is one step forward from the given position
+     * @param {Position} position
+     * @return {Position} next position
+     */
     static increment(position) {
         const [xStep, yStep] = MOVEMENT_MAP[position.orientation];
         logger.debug('Position.increment: [xStep, yStep] = [%d, %d]', xStep, yStep);
         return new Position(position.x + xStep, position.y + yStep, position.orientation);
     }
 
+    /**
+     * Provide a position that turned 90 degrees from the given position
+     * @param {Position} position
+     * @param {string} way
+     * @return {Position} turned position
+     */
     static turn(position, way) {
         const newOrientation =  Orientation.turn(position.orientation, way);
         logger.debug('Position.turn(%s): newOrientation = %s', way, newOrientation);

@@ -19,6 +19,11 @@ const ORIENTATION_MAP = {
 
 export class CommandParser {
 
+    /**
+     * Convert a single line of raw input into a command
+     * @param {string} commandString
+     * @return {Command|null} command
+     */
     parse(commandString) {
         let command = null;
 

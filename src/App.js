@@ -22,6 +22,11 @@ export class App {
         this.client = new ConsoleClient((command) => this._handleCommand(command));
     }
 
+    /**
+     * Process a command from an IO source
+     * @param {Command} command
+     * @return {string} robot response
+     */
     _handleCommand(command) {
         logger.debug('_handleCommand: %s', command);
         if ( command === null ) {
@@ -33,12 +38,19 @@ export class App {
         }
     };
 
+    /**
+     * Create a robot using the application config
+     * @return {Robot} robot
+     */
     _createRobot() {
         const tableMap = new TableMap(config.table);
         const constraints = [new RestrictToTableConstraint(tableMap)];
         return new Robot(tableMap, constraints);
     }
 
+    /**
+     * Activate the robot and begin processing IO
+     */
     run() {
         this.client.start();
     }
