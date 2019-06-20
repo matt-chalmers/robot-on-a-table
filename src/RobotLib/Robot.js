@@ -33,7 +33,7 @@ export class Robot {
             logger.debug('Robot.place(%s) - pose accepted', pose);
             this.pose = pose;
         } else {
-            logger.debug('Robot.place(%s) - failed constraints', pose);
+            logger.info('Robot.place(%s) - failed constraints', pose);
         }
         return null;
     }
@@ -45,7 +45,7 @@ export class Robot {
      */
     moveForward() {
         if ( this.pose === null ) {
-            logger.debug('Robot.moveForward() - ignored as robot is not yet placed');
+            logger.info('Robot.moveForward() - ignored as robot is not yet placed');
             return null;
         }
 
@@ -54,7 +54,7 @@ export class Robot {
             logger.debug('Robot.moveForward() - pose accepted: %s', newPose);
             this.pose = newPose;
         } else {
-            logger.debug('Robot.moveForward() - failed constraints: %s', newPose);
+            logger.info('Robot.moveForward() - failed constraints: %s', newPose);
         }
         return null;
     }
@@ -67,7 +67,7 @@ export class Robot {
      */
     turn(way) {
         if ( this.pose === null ) {
-            logger.debug('Robot.turn() - ignored as robot is not yet placed');
+            logger.info('Robot.turn() - ignored as robot is not yet placed');
             return null;
         }
 
@@ -83,7 +83,7 @@ export class Robot {
      */
     report() {
         if ( this.pose === null ) {
-            logger.debug('Robot.report() - ignored as robot is not yet placed');
+            logger.info('Robot.report() - ignored as robot is not yet placed');
             return null;
         }
         return this.pose.describe();

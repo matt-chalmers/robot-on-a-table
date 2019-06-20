@@ -5,7 +5,7 @@
     },
 
     "logging" : {
-        "level" : "debug",
+        "level" : "info",
         "fileLogging" : true,
         "consoleLogging" : false
     }

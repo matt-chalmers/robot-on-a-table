@@ -48,11 +48,13 @@ export class ConsoleClient {
             output: process.stdout
         });
         this.rl.on('line', (input) => {
-            logger.debug('ConsoleClient received: %s', input);
+            logger.info('ConsoleClient - received request: %s', input);
             const response = this.handleInput(input);
             if (response) {
-                logger.debug('ConsoleClient sending response: %s', response);
+                logger.info('ConsoleClient - sending response: %s', response);
                 process.stdout.write(response + os.EOL);
+            } else {
+                logger.info('ConsoleClient - no response from robot');
             }
         });
     }
