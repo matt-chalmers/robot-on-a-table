@@ -3,9 +3,9 @@ import {Pose} from "./Pose";
 import logger from "../logging";
 
 /*
-    FIX ME - I'm 100% comfortable with the Robot class not reporting error conditions
+    FIX ME - I'm not 100% comfortable with the Robot class not reporting error conditions
     for unplaced robots or bad pose requests etc. Consider a refactor to deal with
-    Errors at the App level.
+    these "errors" at the App level instead.
  */
 
 export class Robot {
