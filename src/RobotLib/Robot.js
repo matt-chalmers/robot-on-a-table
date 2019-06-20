@@ -4,8 +4,8 @@ import logger from "../logging";
 
 /*
     FIX ME - I'm not 100% comfortable with the Robot class not reporting error conditions
-    for unplaced robots or bad pose requests etc. Consider a refactor to deal with
-    these "errors" at the App level instead.
+    for unplaced robots or bad pose requests etc. Consider a refactor to generate error
+    responses and ignore with these "errors" at the App level instead.
  */
 
 export class Robot {
