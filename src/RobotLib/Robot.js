@@ -22,6 +22,10 @@ export class Robot {
         this.tableMap = tableMap;
     }
 
+    _checkConstraints(pose) {
+        return this.constraints.every(x => x.check(pose))
+    }
+
     /**
      * Place the robot at a given table pose.
      * Silently ignore invalid poses.
@@ -29,7 +33,7 @@ export class Robot {
      * @return {null}
      */
     place(pose) {
-        if (this.constraints.every(x => x.check(pose))) {
+        if (this._checkConstraints(pose)) {
             logger.debug('Robot.place(%s) - pose accepted', pose);
             this.pose = pose;
         } else {
@@ -50,7 +54,7 @@ export class Robot {
         }
 
         const newPose = Pose.increment(this.pose);
-        if (this.constraints.every(x => x.check(newPose))) {
+        if (this._checkConstraints(newPose)) {
             logger.debug('Robot.moveForward() - pose accepted: %s', newPose);
             this.pose = newPose;
         } else {
