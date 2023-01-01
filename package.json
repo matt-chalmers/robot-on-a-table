@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/matt-chalmers/robot-on-a-table#readme",
   "dependencies": {
-    "config": "^3.1.0",
+    "config": "^3.3.8",
     "winston": "^3.2.1"
   },
   "devDependencies": {
